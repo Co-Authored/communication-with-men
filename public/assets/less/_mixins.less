@@ -1,0 +1,26 @@
+
+// MIXINS
+// ==================================================
+
+
+	.transition(...) {
+		-webkit-transition: @arguments;
+		-moz-transition: @arguments;
+		-ms-transition: @arguments;
+		-o-transition: @arguments;
+		transition: @arguments;
+	}
+
+	.transform(@transform) {
+		-webkit-transform: @transform;
+		-moz-transform: @transform;
+		-ms-transform: @transform;
+		-o-transform: @transform;
+		transform: @transform;
+	}
+
+	.responsive(@media, @rules) {
+		@media (max-width: @media) {
+			@rules();
+		}
+	}

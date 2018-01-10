@@ -1,0 +1,81 @@
+
+// OVERLAYS
+// ==================================================
+
+
+	.overlay {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+
+			.transition();
+		}
+
+		.overlay-content {
+			width: 100%;
+			display: table-cell;
+			position: relative;
+			padding: 5vw;
+
+			.transition(all 0.5s ease);
+		}
+
+		&[data-pos="top"] .overlay-content { vertical-align: top; }
+		&[data-pos="center"] .overlay-content { vertical-align: middle; }
+		&[data-pos="bottom"] .overlay-content { vertical-align: bottom; }
+
+		&.hidden {
+			.overlay-content { opacity: 0; }
+
+			&::before {
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			&:hover {
+				.overlay-content { opacity: 1; }
+
+				&::before {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+
+		* { z-index: 2; }
+
+		&[data-overlay="10"]::before { background: @dark_color; }
+		&[data-overlay="9"]::before { background: fade(@dark_color, 90%); }
+		&[data-overlay="8"]::before { background: fade(@dark_color, 80%); }
+		&[data-overlay="7"]::before { background: fade(@dark_color, 70%); }
+		&[data-overlay="6"]::before { background: fade(@dark_color, 60%); }
+		&[data-overlay="5"]::before { background: fade(@dark_color, 50%); }
+		&[data-overlay="4"]::before { background: fade(@dark_color, 40%); }
+		&[data-overlay="3"]::before { background: fade(@dark_color, 30%); }
+		&[data-overlay="2"]::before { background: fade(@dark_color, 20%); }
+		&[data-overlay="1"]::before { background: fade(@dark_color, 10%); }
+
+		&[data-overlay="10"].overlay-light::before { background: @white_color; }
+		&[data-overlay="9"].overlay-light::before { background: fade(@white_color, 90%); }
+		&[data-overlay="8"].overlay-light::before { background: fade(@white_color, 80%); }
+		&[data-overlay="7"].overlay-light::before { background: fade(@white_color, 70%); }
+		&[data-overlay="6"].overlay-light::before { background: fade(@white_color, 60%); }
+		&[data-overlay="5"].overlay-light::before { background: fade(@white_color, 50%); }
+		&[data-overlay="4"].overlay-light::before { background: fade(@white_color, 40%); }
+		&[data-overlay="3"].overlay-light::before { background: fade(@white_color, 30%); }
+		&[data-overlay="2"].overlay-light::before { background: fade(@white_color, 20%); }
+		&[data-overlay="1"].overlay-light::before { background: fade(@white_color, 10%); }
+	}

@@ -1,0 +1,133 @@
+
+// SLIDERS
+// --------------------------------------------------
+
+
+	.slider {
+		position: relative;
+
+
+		// dots
+		.owl-dots {
+			width: 100%;
+			height: 7px;
+			position: absolute;
+			right: 0;
+			bottom: 3vw;
+			left: 0;
+			z-index: 99;
+			text-align: center;
+
+			.owl-dot {
+				display: inline-block;
+				margin: 0 5px;
+				overflow: hidden;
+
+				span {
+					display: inline-block;
+					width: 7px;
+					height: 7px;
+					border-radius: 50%;
+					background: fade(@dark_color, 30%);
+					border: none;
+					box-shadow: none;
+					margin: 0;
+
+					.transition(all 0.3s ease);
+				}
+
+				&:hover span,
+				&.active span { background: @dark_color; }
+			}
+		}
+
+
+		// nav
+		.owl-nav {
+			width: 80px;
+			margin: 50px auto;
+			position: relative;
+			z-index: 100;
+			background: #ff0000;
+
+			div {
+				position: absolute;
+				width: 12px;
+				height: 12px;
+
+				.transform(rotate(45deg));
+				.transition(all 0.3s ease);
+
+				&.owl-prev {
+					left: 0;
+					border-bottom: 2px solid @dark_color;
+					border-left: 2px solid @dark_color;
+
+					&:hover {
+						border-bottom-color: @dark_color;
+						border-left-color: @dark_color;
+					}
+				}
+
+				&.owl-next {
+					right: 0;
+					border-top: 2px solid @dark_color;
+					border-right: 2px solid @dark_color;
+
+					&:hover {
+						border-top-color: @dark_color;
+						border-right-color: @dark_color;
+					}
+				}
+			}
+		}
+
+
+		&.outside {
+			.owl-dots {
+				position: relative;
+				top: 15px;
+				bottom: 0;
+			}
+		}
+
+
+		&.shadow {
+			box-shadow: 0 0 100px 1px fade(@dark_color, 10%);
+		}
+
+
+		&.controls-light {
+			.owl-dots {
+				.owl-dot {
+					span { background: fade(@white_color, 50%); }
+					&:hover span,
+					&.active span { background: @white_color; }
+				}
+			}
+
+			.owl-nav {
+				div {
+					&.owl-prev {
+						border-bottom-color: fade(@white_color, 50%);
+						border-left-color: fade(@white_color, 50%);
+
+						&:hover {
+							border-bottom-color: @white_color;
+							border-left-color: @white_color;
+						}
+					}
+
+					&.owl-next {
+						border-top-color: fade(@white_color, 50%);
+						border-right-color: fade(@white_color, 50%);
+
+						&:hover {
+							border-top-color: @white_color;
+							border-right-color: @white_color;
+						}
+					}
+				}
+			}
+		}
+	}
